@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <ul class="nav nav-pills justify-content-end my-3">
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="{'active': isGrid}" (click)="isGrid=true" href="#"><i class="material-icons">view_module</i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="{'active': !isGrid}" (click)="isGrid=false" href="#"><i class="material-icons">view_list</i></a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="my-2" [ngClass]="{'col-md-12': !isGrid, 'col-md-4': isGrid}" *ngFor="let item of listOfItems">
+      <div class="card w-100">
+        <div class="card-header">
+          Currency in USD : {{item.Volume}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Date {{item.Date}}</h5>
+          <p class="card-text">Open: {{item.Open}} - Close: {{item.Close}}</p>
+          <blockquote class="blockquote mb-0">
+            <p>High: {{item.High}} - Low {{item.Low}}</p>
+            <footer class="blockquote-footer">Adj Close <cite title="Source Title">{{item['Adj Close']}}</cite></footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>  
+  </div>
+  
+  
+</div>
